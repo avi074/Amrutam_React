@@ -2,8 +2,8 @@
 import { lazy } from 'react';
 
 // Use React.lazy to dynamically import components
-const Home = lazy(() => import('./pages/Home.tsx'));
-const About = lazy(() => import('./pages/About.tsx'));
+// const Home = lazy(() => import('./pages/Home.tsx'));
+const DocInfo = lazy(() => import('./pages/[DocInfo].tsx'));
 const FindDoc = lazy(() => import('./pages/FindDoc.tsx'));
 const NotFound = lazy(() => import('./pages/NotFound.tsx'));
 
@@ -15,9 +15,8 @@ export interface RouteConfig {
 }
 
 const routes: RouteConfig[] = [
-    { path: '/', element: Home, index: true },
-    { path: '/about', element: About },
-    { path: '/contact', element: FindDoc },
+    { path: '/findDoc', element: FindDoc},
+    { path: '/findDoc/:id', element: DocInfo},
     { path: '*', element: NotFound },
 ];
 

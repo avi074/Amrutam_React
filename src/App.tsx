@@ -1,11 +1,13 @@
-import { Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import routes, { RouteConfig } from './routes';
+import { Suspense } from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import routes, { RouteConfig } from "./routes"
+import Header from "./components/Header"
 
 function App() {
   return (
     <>
-      <Router basename="/amrutam_react_web">
+      <Router basename='/amrutam_react_web/'>
+      <Header />
         {/* Wrap Routes inside Suspense to show a fallback UI while loading */}
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
