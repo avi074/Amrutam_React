@@ -2,9 +2,9 @@ import { FC, ReactNode } from "react"
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card"
 
 interface IntroCardProps {
-  header?: ReactNode | string
-  content: ReactNode | string
-  footer?: ReactNode | string
+  header?: ReactNode
+  content: ReactNode
+  footer?: ReactNode
 }
 
 const IntroCard: FC<IntroCardProps> = ({ header, content, footer }) => {
@@ -16,7 +16,7 @@ const IntroCard: FC<IntroCardProps> = ({ header, content, footer }) => {
             {header}
           </CardHeader>
         )}
-        <CardContent>{content}</CardContent>
+        <CardContent className="pb-2">{content}</CardContent>
         {footer && (
           <>
             <hr className="text-neutral-500 border w-3/4 mx-4 my-2"/>

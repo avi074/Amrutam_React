@@ -12,18 +12,22 @@ import DocImg from "../assets/images/doc-1.jpg"
 import {
   GraduationCap,
   LucideMessageSquareText,
+  MapPin,
   Pencil,
   Star,
 } from "lucide-react"
 import { useNavigate } from "react-router-dom"
+import { Select } from "@radix-ui/react-select"
+import { Input } from "@/components/ui/input"
+import { SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const DocCard = () => {
   const navigate = useNavigate()
   return (
     <>
-      <Card className='bg-primary-foreground'>
+      <Card className='bg-primary-foreground cursor-pointer transition-all transform-gpu ease-linear duration-200 hover:-translate-y-2 hover:drop-shadow-xl'>
         <CardHeader className='relative justify-center items-center'>
-          <Avatar className='size-[100px]'>
+          <Avatar className='size-[100px] hover:drop-shadow-lg hover:border'>
             <AvatarImage src={DocImg} alt='Doc-1' className='object-cover' />
           </Avatar>
           <span className='absolute bottom-2 flex gap-2 items-center py-1 px-2 rounded-full bg-neutral-900 text-white scale-75'>
@@ -32,7 +36,9 @@ const DocCard = () => {
         </CardHeader>
         <CardContent className='flex flex-col gap-2'>
           <CardTitle>
-            <h1 className='text-2xl text-center'>Dr. Prerna Narang</h1>
+            <h1 className='text-2xl text-center hover:drop-shadow-md'>
+              Dr. Prerna Narang
+            </h1>
           </CardTitle>
 
           <CardDescription>
@@ -88,10 +94,27 @@ function FindDoc() {
           </h1>
         </CardHeader>
         <CardContent>
-          <form></form>
+          <form className="flex gap-3 justify-center items-center w-1/2 mx-auto">
+            <Select>
+              <SelectTrigger className='w-[180px] border border-primary'>
+                <MapPin className="text-primary"/>
+                <SelectValue placeholder='Location'/>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Locations</SelectLabel>
+                  <SelectItem value='Delhi'>Delhi</SelectItem>
+                  <SelectItem value='Mumbai'>Mumbai</SelectItem>
+                  <SelectItem value='Kolkata'>Kolkata</SelectItem>
+                  <SelectItem value='Chennai'>Chennai</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+            <Input />
+          </form>
         </CardContent>
       </Card>
-      <div className='flex justify-center items-center gap-6 w-3/4 my-4 mx-auto'>
+      <div className='flex justify-center items-center gap-6 w-3/4 my-8 mx-auto'>
         <DocCard />
         <DocCard />
         <DocCard />

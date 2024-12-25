@@ -2,14 +2,15 @@ import { Suspense } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import routes, { RouteConfig } from "./routes"
 import Header from "./components/Header"
+import Loader from "./components/Loader"
 
 function App() {
   return (
     <>
       <Router basename='/amrutam_react_web/'>
-      <Header />
+        <Header />
         {/* Wrap Routes inside Suspense to show a fallback UI while loading */}
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             {/* Dynamically map through the route configuration */}
             {routes.map((route: RouteConfig, index: number) => (

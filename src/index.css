@@ -15,8 +15,8 @@
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary:121 27% 31%;
-    --primary-foreground:43 100% 94.1% ;
+    --primary: 121 27% 31%;
+    --primary-foreground: 43 100% 94.1%;
     --secondary: 120, 41%, 87%, 0.5;
     --secondary-foreground: 120, 24%, 93%, 1;
     --muted: 0 0% 96.1%;
@@ -71,4 +71,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.icon-txt {
+  @apply font-sans text-sm px-3 py-1 rounded-full shadow-md border bg-gray-200/40 transition-transform hover:-translate-y-1 active:animate-ping;
+}
+
+span.icon-txt{
+  @apply mt-2 text-primary;
 }
