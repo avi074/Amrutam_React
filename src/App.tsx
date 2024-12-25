@@ -7,7 +7,7 @@ import Loader from "./components/Loader"
 function App() {
   return (
     <>
-      <Router basename='/amrutam_react/'>
+      <Router basename='/Amrutam_React/'>
         <Header />
         {/* Wrap Routes inside Suspense to show a fallback UI while loading */}
         <Suspense fallback={<Loader />}>
