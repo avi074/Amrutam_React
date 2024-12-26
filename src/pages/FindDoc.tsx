@@ -17,9 +17,9 @@ import {
   Star,
 } from "lucide-react"
 import { useNavigate } from "react-router-dom"
-import { Select } from "@radix-ui/react-select"
 import { Input } from "@/components/ui/input"
-import { SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import SelectCombo from "@/components/SelectCombo"
+
 
 const DocCard = () => {
   const navigate = useNavigate()
@@ -94,25 +94,53 @@ function FindDoc() {
           </h1>
         </CardHeader>
         <CardContent>
-          <form className="flex gap-3 justify-center items-center w-1/2 mx-auto">
-            <Select>
-              <SelectTrigger className='w-[180px] border border-primary'>
-                <MapPin className="text-primary"/>
-                <SelectValue placeholder='Location'/>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Locations</SelectLabel>
-                  <SelectItem value='Delhi'>Delhi</SelectItem>
-                  <SelectItem value='Mumbai'>Mumbai</SelectItem>
-                  <SelectItem value='Kolkata'>Kolkata</SelectItem>
-                  <SelectItem value='Chennai'>Chennai</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-            <Input />
+          <form className='flex gap-3 justify-center items-center w-1/2 mx-auto'>
+            <SelectCombo
+              trigger={<MapPin className='text-primary' />}
+              label='Locations'
+              options={[
+                { name: "Delhi", value: "1" },
+                { name: "Mumbai", value: "2" },
+                { name: "Chennai", value: "3" },
+                { name: "Kolkata", value: "4" },
+              ]}
+            />
+
+            <Input
+              placeholder='eg. Doctor, Specialisation, clinic Name'
+              className='bg-white'
+            />
           </form>
         </CardContent>
+        <CardFooter className="bg-white flex justify-center gap-16 items-center py-4">
+          <SelectCombo label="Expertise" options={
+            [
+              {name:'Hair Loss', value:'1'},
+              {name:'Pelvic Pain', value:'2'},
+              {name:'Pregnancy', value:'3'},
+            ]
+          }/>
+          <SelectCombo label="Gender" options={
+            [
+              {name:'Male', value:'1'},
+              {name:'Female', value:'2'},
+              {name:'Transgender', value:'3'},
+            ]
+          }/>
+          <SelectCombo label="Fees" options={
+            [
+              {name:'0-500 rs', value:'1'},
+              {name:'500-1000 rs', value:'2'},
+              {name:'1000+ rs', value:'3'},
+            ]
+          }/>
+          <SelectCombo label="Language" options={
+            [
+              {name:'Hindi', value:'1'},
+              {name:'English', value:'2'},
+            ]
+          }/>
+        </CardFooter>
       </Card>
       <div className='flex justify-center items-center gap-6 w-3/4 my-8 mx-auto'>
         <DocCard />
